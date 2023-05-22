@@ -1,0 +1,14 @@
+<div>
+  Title: <%= @post.title %>
+</div>
+
+<hr>
+
+<div>
+  Comments:
+  <div>
+    <%- @post.comments.each do |c| %>
+      <p><%= c.body %></p>
+    <% end %>
+  </div>
+</div>

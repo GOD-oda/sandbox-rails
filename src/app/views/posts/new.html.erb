@@ -1,0 +1,30 @@
+<%- if @post.errors.any? %>
+  <ul>
+    <%- @post.errors.each do |e| %>
+      <li><%= e.full_message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= form_with model: @post, local: true do |form| %>
+  <div>
+    <div>
+      <%= form.label 'title' %>
+    </div>
+    <%= form.text_field :title %>
+  </div>
+
+  <hr>
+
+  <div>
+    <div>
+      comments
+    </div>
+
+    <%= form.fields_for :comments do |f| %>
+      <%= f.text_field :body %>
+    <% end %>
+  </div>
+
+  <%= form.submit 'Create' %>
+<% end %>
